@@ -1,0 +1,240 @@
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services-hero {
+    background-image: url('Our service images/Our services Bg.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    background-color: rgba(1, 44, 96, 0.85);
+    width: 100%;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.banner h2 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.content-section {
+    padding: 60px 0;
+}
+
+.content-section.text-center {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.our-product {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding: 80px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.our-product::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0A3A60;
+    opacity: 0.9;
+}
+
+/* Section-specific backgrounds */
+.section-1 { background-image: url('Our service images/Our product Img/Our product Bg 1.png'); }
+.section-2 { background-image: url('Our service images/Our product Img/Our product Bg 2.png'); }
+.section-3 { background-image: url('Our service images/Our product Img/Our product Bg 3.png'); }
+.section-4 { background-image: url('Our service images/Our product Img/Our product Bg 4.png'); }
+.section-5 { background-image: url('Our service images/Our product Img/Our product Bg 5.png'); }
+.section-6 { background-image: url('Our service images/Our product Img/Our product Bg6.png'); }
+
+.our-product-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.our-product-container .reversed {
+    flex-direction: row-reverse;
+}
+
+.our-product .frame,
+.our-product .image-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.our-product .frame {
+    color: #FFF;
+}
+
+.our-product .frame h1 {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.our-product .frame p {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.our-product .image-content {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    aspect-ratio: 3 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.our-product .image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+
+@media (max-width: 1024px) {
+.our-product-container {
+flex-direction: column;
+padding: 0 20px;
+text-align: center;
+}
+
+.our-product-container.reversed {
+flex-direction: column;
+}
+
+.our-product .frame,
+.our-product .image-content {
+max-width: 100%;
+}
+
+    .our-product .image-content {
+        height: auto;
+    }
+
+
+
+    .our-product .image-content {
+        height: 300px;
+    }
+
+
+.our-product .frame h1 {
+font-size: 2.2rem;
+}
+
+.our-product .frame p {
+font-size: 1rem;
+}
+}
+
+@media (max-width: 768px) {
+.banner h2 {
+font-size: 4rem;
+}
+
+.our-product .frame h1 {
+font-size: 3rem;
+}
+
+.our-product .frame p {
+font-size: 0.95rem;
+padding: 0 10px;
+}
+
+.container {
+padding: 0 15px;
+}
+
+.content-section.text-center {
+padding: 40px 15px;
+}
+
+.our-product {
+padding: 60px 0;
+}
+    .our-product .image-content {
+        height: 280px;
+    }
+    .our-product .image-content img {
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+.banner h2 {
+font-size: 1.8rem;
+}
+
+.our-product .frame h1 {
+font-size: 1.6rem;
+}
+
+.our-product .frame p {
+font-size: 0.9rem;
+}
+
+.our-product-container {
+gap: 30px;
+}
+    .our-product .image-content {
+        height: 200px;
+    }
+    .our-product .image-content img {
+        border-radius: 12px;
+    }
+}

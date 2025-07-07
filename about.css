@@ -1,0 +1,316 @@
+/* General Body and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Hero Section */
+.services-hero {
+    background-image: url('images/frameless.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    background-color: rgba(1, 44, 96, 0.85);
+    width: 100%;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.banner h2 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+/* About Description Section */
+.about-description {
+    padding: 40px 60px;
+    background-color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.about-description p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Strengths Section (Mission/Vision) */
+.full-section {
+    display: flex;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.left-content {
+    flex: 1;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-image {
+    flex: 1;
+    background: url('images/frameless.png') no-repeat center center/cover;
+    min-height: 400px;
+}
+
+.left-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0c2340;
+}
+
+.list {
+    margin-bottom: 30px;
+}
+
+.list-item {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.list-item i {
+    margin-right: 15px;
+    color: #d63c6c;
+}
+
+.toggle-buttons {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.toggle-buttons button {
+    padding: 12px 25px;
+    margin-right: 10px;
+    border: 1px solid #083a6e;
+    background-color: transparent;
+    color: #083a6e;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-buttons button:hover,
+.toggle-buttons button.active {
+    background-color: #083a6e;
+    color: white;
+}
+
+.mission-vision-text {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    max-width: 90%;
+}
+
+/* Statistics Section */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+.stat-box {
+    flex: 1;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: left;
+    color: #ffffff;
+    background: #506478;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.stat-box .counter {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.plus-sign {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.stat-box h4 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+    font-weight: 600;
+}
+
+.stat-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* What We Offer Section */
+.offer-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.offer-section h2 {
+    font-size: 2.2rem;
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.offer-section p {
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.offer-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.offer-card {
+    background: #003366;
+    color: white;
+    flex: 1 1 250px;
+    max-width: 280px;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+}
+
+.offer-card-icon {
+    background: white;
+    color: #003366;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+
+/* --- Responsive Design --- */
+
+/* Tablet and Smaller Desktops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .left-content {
+        padding: 40px;
+    }
+
+    .left-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .list-item {
+        font-size: 1.1rem;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+    }
+
+    .stat-box {
+        flex-basis: calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .banner h2 {
+        font-size: 2.2rem;
+    }
+
+    .about-description {
+        padding: 30px 20px;
+    }
+
+    .full-section {
+        flex-direction: column;
+    }
+
+    .right-image {
+        min-height: 250px;
+        width: 100%;
+    }
+
+    .left-content {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .list-item {
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .toggle-buttons {
+        justify-content: center;
+    }
+
+    .mission-vision-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat-box {
+        flex-basis: 100%;
+        margin-bottom: 0;
+    }
+
+    .offer-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .offer-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
