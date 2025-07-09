@@ -31,7 +31,7 @@ body {
 }
 .caption {
   position: absolute;
-  bottom: 20%;
+  bottom: 64%;
   left: 5%;
   background: rgba(0, 51, 102, 0.8);
   color: #ffffff;
@@ -42,6 +42,22 @@ body {
    opacity: 0;
   transform: translateX(-100vw);
 }
+
+
+.sub-caption {
+  position: absolute;
+  bottom: 56%; /* Positioned below the main caption */
+  left: 5%;
+  background: rgba(50, 50, 50, 0.7); /* Slightly different background */
+  color: #f0f0f0;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateX(-100vw);
+}
+
+
 .animate-caption-in {
   animation: slideCaptionIn 1s ease-out forwards;
 }
