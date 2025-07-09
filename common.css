@@ -2,7 +2,80 @@ body {
   font-family: 'Segoe UI', sans-serif;
   color: #1a1a1a;
   box-sizing: border-box;
+  
 }
+/* For mobile screens */
+@media (max-width: 768px) {
+  #whatsapp .wtsapp {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 22px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  #whatsapp .wtsapp:before {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+
+/*---------------*/
+#whatsapp .wtsapp:focus {border: 0; outline: 0;}
+
+#whatsapp .wtsapp {
+    position: fixed;
+    transition: all .5s ease;
+    background: #25d366;
+    display: block;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    border-right: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+  bottom: 25px;
+  right: 25px;
+    border: 0;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    line-height: 48px;
+}
+
+#whatsapp .wtsapp:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    -webkit-animation: pulse-border 1500ms ease-out infinite;
+    animation: pulse-border 1500ms ease-out infinite;
+}
+
+@keyframes pulse-border {
+    0 {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+
+/*---------------*/
 #headerWrapper {
     position: fixed;
     top: 0;
