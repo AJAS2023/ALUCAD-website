@@ -11,6 +11,10 @@ body {
     position: relative;
     overflow: hidden;
 }
+.sub-caption.animate-caption-in {
+  animation: slideCaptionIn 1s ease-out forwards;
+}
+
 .slides {
   display: flex;
   width: 100%;
@@ -46,11 +50,13 @@ body {
 
 .sub-caption {
   position: absolute;
-  bottom: 56%; /* Positioned below the main caption */
-  left: 5%;
-  background: rgba(50, 50, 50, 0.7); /* Slightly different background */
+  bottom: 43%; /* Positioned below the main caption */
+  left: 20%;
+ /* background: rgba(50, 50, 50, 0.7); /* Slightly different background */
   color: #f0f0f0;
-  padding: 10px 20px;
+  text-align: justify;
+
+  padding: 0px 83px;
   font-size: 18px;
   border-radius: 5px;
   opacity: 0;
@@ -639,6 +645,7 @@ h2 {
   color: #444;
   margin: 0 16px 16px;
   line-height: 1.5;
+  text-align: justify;
 }
 
 .btn-small {
@@ -725,4 +732,79 @@ h2 {
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+}
+
+
+/* Ensure slider images adapt responsively */
+@media (max-width: 768px) {
+  .slider {
+    height: auto;
+    padding-top: 112px;
+  }
+
+  .slide img {
+    height: auto;
+  }
+
+  .caption {
+    font-size: 20px;
+    bottom: 60%;
+    left: 10px;
+    padding: 10px 16px;
+  }
+
+  .sub-caption {
+    font-size: 12px;
+    padding: 0 16px;
+    left: 82px;
+    bottom: 20%;
+  }
+}
+
+/* Navigation responsive behavior */
+@media (max-width: 768px) {
+  .nav-right {
+    display: none;
+    flex-direction: column;
+    background-color: #083a6e;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .nav-right.show {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  .btn-outline {
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+}
+
+/* Ensure footer is stacked on mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
 }
