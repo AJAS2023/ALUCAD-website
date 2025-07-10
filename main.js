@@ -8,7 +8,7 @@
       // Toggle icon (optional)
       icon.textContent = navMenu.classList.contains('show') ? '✖' : '☰';
     }
- 
+
     let lastScrollTop = 0;
     const headerWrapper = document.getElementById('headerWrapper');
 
@@ -47,35 +47,35 @@
   const totalSlides = slides.length;
   const slideDuration = 5000; // 5 seconds
 
-  function showSlide(index) {
-    slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
+  // function showSlide(index) {
+  //   slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
 
-    slides.forEach((slide, i) => {
-      const img = slide.querySelector('img');
-      const caption = slide.querySelector('.caption');
+  //   slides.forEach((slide, i) => {
+  //     const img = slide.querySelector('img');
+  //     const caption = slide.querySelector('.caption');
 
-      // Remove all animation classes
-      img.classList.remove('animate-img');
-      caption.classList.remove('animate-caption-in');
-      caption.classList.remove('animate-caption-out');
+  //     // Remove all animation classes
+  //     img.classList.remove('animate-img');
+  //     caption.classList.remove('animate-caption-in');
+  //     caption.classList.remove('animate-caption-out');
 
-      // Animate out only if not current slide
-      if (i !== index) {
-        caption.classList.add('animate-caption-out');
-      }
-    });
+  //     // Animate out only if not current slide
+  //     if (i !== index) {
+  //       caption.classList.add('animate-caption-out');
+  //     }
+  //   });
 
-    // Animate in current slide caption
-    const currentSlide = slides[index];
-    const currentImg = currentSlide.querySelector('img');
-    const currentCaption = currentSlide.querySelector('.caption');
+  //   // Animate in current slide caption
+  //   const currentSlide = slides[index];
+  //   const currentImg = currentSlide.querySelector('img');
+  //   const currentCaption = currentSlide.querySelector('.caption');
 
-    void currentImg.offsetWidth;     // trigger reflow
-    void currentCaption.offsetWidth;
+  //   void currentImg.offsetWidth;     // trigger reflow
+  //   void currentCaption.offsetWidth;
 
-    currentImg.classList.add('animate-img');
-    currentCaption.classList.add('animate-caption-in');
-  }
+  //   currentImg.classList.add('animate-img');
+  //   currentCaption.classList.add('animate-caption-in');
+  // }
 
   function nextSlide() {
     currentIndex = (currentIndex + 1) % totalSlides;
@@ -87,6 +87,37 @@
   setInterval(nextSlide, slideDuration);
   const counters = document.querySelectorAll('.counter');
     let hasAnimated = false;
+function showSlide(index) {
+  slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
+
+  slides.forEach((slide, i) => {
+    const img = slide.querySelector('img');
+    const caption = slide.querySelector('.caption');
+    const subCaption = slide.querySelector('.sub-caption');
+
+    img.classList.remove('animate-img');
+    caption?.classList.remove('animate-caption-in', 'animate-caption-out');
+    subCaption?.classList.remove('animate-caption-in', 'animate-caption-out');
+
+    if (i !== index) {
+      caption?.classList.add('animate-caption-out');
+      subCaption?.classList.add('animate-caption-out');
+    }
+  });
+
+  const currentSlide = slides[index];
+  const currentImg = currentSlide.querySelector('img');
+  const currentCaption = currentSlide.querySelector('.caption');
+  const currentSubCaption = currentSlide.querySelector('.sub-caption');
+
+  void currentImg.offsetWidth;
+  void currentCaption?.offsetWidth;
+  void currentSubCaption?.offsetWidth;
+
+  currentImg.classList.add('animate-img');
+  currentCaption?.classList.add('animate-caption-in');
+  currentSubCaption?.classList.add('animate-caption-in');
+}
 
     function animateCounters() {
       if (hasAnimated) return;
@@ -200,4 +231,3 @@
 
     init();
   });
-  
