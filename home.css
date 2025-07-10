@@ -761,7 +761,7 @@ h2 {
   }
 }
 
-/* Navigation responsive behavior */
+/* Navigation responsive behavior 
 @media (max-width: 768px) {
   .nav-right {
     display: none;
@@ -793,7 +793,7 @@ h2 {
   }
 }
 
-/* Ensure footer is stacked on mobile */
+/* Ensure footer is stacked on mobile 
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -807,4 +807,4 @@ h2 {
   .footer-socials {
     justify-content: center;
   }
-}
+}*/
