@@ -5,27 +5,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alucad</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="common.css" />
   <link rel="stylesheet" href="home.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
   <div id="headerWrapper">
     <header class="top-bar" id="topBar">
       <div class="contact">
-        <img src="images/call.png" alt="📞" class="icon"> +971 50993 3130, +971 2 639 0130      </div>
+        <img src="images/call.png" alt="Call Icon" class="icon" /> +971 50993 3130, +971 2 639 0130
+      </div>
       <div class="email">✉ support@virtuglobe.com</div>
     </header>
 
-    <div class="navbar" id="navbar">
+    <nav class="navbar" id="navbar">
       <div class="logo">
-          <img src="LOGO.jpeg" alt="Alucad Logo">
+        <img src="LOGO.jpeg" alt="Alucad Logo" />
       </div>
       <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
       <div class="nav-right" id="navMenu">
         <ul class="nav-links">
           <li><a href="./index.html">Home</a></li>
@@ -33,51 +31,61 @@
           <li><a href="./services.html">Our Services</a></li>
           <li><a href="./gallery.html">Gallery</a></li>
         </ul>
-       <button onclick="location.href='./contacts.html'" class="btn-outline">Contact us</button>
+        <button onclick="location.href='./contacts.html'" class="btn-outline">Contact us</button>
       </div>
-    </div>
+    </nav>
   </div>
 
-  <section class="slider">
-    <div class="slides">
-      <div class="slide" data-index="0">
-        <img src="images/images doors.png" alt="Doors and Windows" />
-        <div class="caption">Doors and Windows</div>
-        <div class="sub-caption">Custom-designed aluminium doors and windows offering smooth functionality, thermal insulation, and contemporary design for residential, commercial, and industrial spaces.</div>
-      </div>
-
-      <div class="slide">
-        <img src="images/frameless.png" alt="Frameless Work" />
-        <div class="caption">Frameless Work</div>
-        <div class="sub-caption">Sleek frameless glass partitions, shopfronts, and enclosures that bring transparency, elegance, and space efficiency to modern interiors and retail environments.</div>
-        </div>
-
-      <div class="slide">
-        <img src="images/aluminium.png" alt="Aluminium and Glass" />
-        <div class="caption">Aluminium and Glass</div>
-        <div class="sub-caption">Enhancing modern architecture with precision-engineered aluminium and glass façades, curtain walls, and glazing systems designed for strength, beauty, and energy efficiency.</div>
+  <section class="hero-slider">
+    <div class="slide active fade-in" data-anim="fade-in">
+      <img src="images/aluminium.png" alt="Elegant architectural structures" />
+      <div class="caption-container">
+        <h1 class="caption">Elegant Architectural Vision That Flows</h1>
+        <p class="sub-caption">Aluminium is a lightweight metal used in various industries due to strength and corrosion resistance.</p>
       </div>
     </div>
-  </section>
-  <section class="why-choose" id="why-choose">
-    <h2>Why Choose Alucad ?</h2>
-    <div class="features">
-      <div class="feature-item">
-        <div class="icon-circle"><i class="fas fa-industry"></i></div>
-        <p>Industry Expertise</p>
+    <div class="slide slide-left" data-anim="slide-left">
+      <img src="images/aluminium.png" alt="Sleek aluminium frames" />
+      <div class="caption-container">
+        <h1 class="caption">Frameless Impressions</h1>
+        <p class="sub-caption">Discover sleek and strong aluminium frames for modern architectural spaces.</p>
       </div>
-      <div class="feature-item">
-        <div class="icon-circle"><i class="fas fa-tools"></i></div>
-        <p>Modern Tools</p>
+    </div>
+    <div class="slide slide-right" data-anim="slide-right">
+      <img src="images/images doors.png" alt="Modern aluminium doors" />
+      <div class="caption-container">
+        <h1 class="caption">Power Meets Aesthetics</h1>
+        <p class="sub-caption">Aluminium balances design beauty and industrial durability effortlessly.</p>
       </div>
-      <div class="feature-item">
-        <div class="icon-circle"><i class="fas fa-users-cog"></i></div>
-        <p>Skilled Team</p>
+    </div>
+    <div class="slide zoom-in" data-anim="zoom-in">
+      <img src="images/glass.jpg" alt="Glass and aluminium design" />
+      <div class="caption-container">
+        <h1 class="caption">Sculpting Transparent Elegance</h1>
+        <p class="sub-caption">Craft minimal glass-aluminium designs that redefine clarity and form.</p>
       </div>
-      <div class="feature-item">
-        <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
-        <p>Reliable Service</p>
+    </div>
+    <div class="slide flip-in" data-anim="flip-in">
+      <img src="images/frameless.png" alt="Custom-built aluminium systems" />
+      <div class="caption-container">
+        <h1 class="caption">Bold and Bespoke</h1>
+        <p class="sub-caption">Custom-built aluminium systems tailored to your architectural imagination.</p>
       </div>
+    </div>
+    <div class="slide float-up" data-anim="float-up">
+      <img src="images/aluminium.png" alt="Aluminium building facades" />
+      <div class="caption-container">
+        <h1 class="caption">Elevating Structures</h1>
+        <p class="sub-caption">From façades to frameworks, aluminium lifts design to new levels.</p>
+      </div>
+    </div>
+    <div class="slider-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+      <span class="dot" data-index="5"></span>
     </div>
   </section>
 
@@ -85,7 +93,7 @@
     <div class="stat-box">
       <div><span class="counter" data-target="400">0</span><span class="plus-sign">+</span></div>
       <h4>Projects Completed</h4>
-      <p>ALUCAD has successfully delivered a diverse portfolio of prestigious projects across the UAE, providing high-performance architectural systems for iconic high-rise commercial and residential towers, luxury hotels, and major public buildings.</p>
+      <p>ALUCAD has successfully delivered a diverse portfolio of prestigious projects across the UAE, providing high-performance architectural systems.</p>
     </div>
     <div class="stat-box">
       <div><span class="counter" data-target="22">0</span><span class="plus-sign">+</span></div>
@@ -95,133 +103,137 @@
     <div class="stat-box">
       <div><span class="counter" data-target="100">0</span><span class="plus-sign">%</span></div>
       <h4>Client Satisfaction</h4>
-      <p>ALUCAD is dedicated to client satisfaction through a client-first approach, delivering fully customized aluminium and glass solutions that are precisely tailored to exceed each project's unique requirements through innovation, integrity, and a commitment to lasting quality.</p>
+      <p>ALUCAD is dedicated to client satisfaction through a client-first approach, delivering fully customized solutions that exceed each project's unique requirements.</p>
     </div>
   </section>
+
   <section class="services">
+    <div class="container">
+      <h2>Featured Services</h2>
+      <div class="carousel-wrapper">
+        <div class="carousel-track">
+          <div class="service-card">
+            <div class="image" style="background-image: url('Our service images/Our product Img/Aluminium and Glass.png');"></div>
+            <div class="content">
+              <h4>Aluminium and Glass Systems</h4>
+              <p>We deliver premium aluminium and glass solutions, specializing in designing, fabricating, and installing curtain wall systems...</p>
+              <a href="services.html#aluminium-and-glass" class="btn-small">Read More</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="image" style="background-image: url('Our service images/Our product Img/Doors and windows Img.png');"></div>
+            <div class="content">
+              <h4>Doors and Windows</h4>
+              <p>Top-quality aluminium doors and windows built for performance, durability, and modern aesthetics, including sliding, hinged, and foldable...</p>
+              <a href="services.html#doors-and-windows" class="btn-small">Read More</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="image" style="background-image: url('Our service images/Our product Img/Cladding Solution Img.png');"></div>
+            <div class="content">
+              <h4>Cladding Solution</h4>
+              <p>Expert cladding solutions that combine protection, performance, and visual appeal, including aluminium composite panel (ACP)...</p>
+              <a href="services.html#cladding-solution" class="btn-small">Read More</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="image" style="background-image: url('Our service images/Our product Img/Frameless structure Img.png');"></div>
+            <div class="content">
+              <h4>Frameless Structures</h4>
+              <p>Sleek, modern frameless glass solutions for commercial and residential spaces, including office partitions, shower enclosures, and railings...</p>
+              <a href="services.html#frameless-structure" class="btn-small">Read More</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="image" style="background-image: url('Our service images/Our product Img/Handrails and Balustrades Img.png');"></div>
+            <div class="content">
+              <h4>Handrails and Balustrades</h4>
+              <p>High-quality handrails and balustrades that combine safety, durability, and modern design, including glass and stainless steel options...</p>
+              <a href="services.html#handrails-and-balustrades" class="btn-small">Read More</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="image" style="background-image: url('Our service images/Our product Img/Architectural Features Img.png');"></div>
+            <div class="content">
+              <h4>Architectural Features</h4>
+              <p>Custom architectural features that enhance style and functionality, including skylights, domes, pergolas, and decorative screens...</p>
+              <a href="services.html#architectural-features" class="btn-small">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
   <div class="container">
-    <h2>Featured Services</h2>
-    <div class="carousel-wrapper">
-      <div class="carousel-track">
-        <!-- Repeat your service-card blocks -->
-        <div class="service-card">
-          <div class="image" style="background-image: url('Our service images/Our product Img/Aluminium and Glass.png');"></div>
-          <h4>Aluminium and Glass Systems</h4>
-          <p>We delivers premium aluminium and glass solutions across the UAE. We specialize in designing, fabricating, and installing curtain wall systems, unitized façades, structural...</p>
-         <a href="services.html#aluminium-and-glass" class="btn-small">Read More</a>
-        </div>
-       
-         <div class="service-card">
-          <div class="image" style="background-image: url('Our service images/Our product Img/Doors and windows Img.png');"></div>
-          <h4>Doors and Windows </h4>
-          <p>We provides top-quality aluminium doors and windows in the UAE, built for performance, durability, and modern aesthetics. Our range includes sliding, hinged, foldable, and...</p>
-          <a href="services.html#doors-and-windows" class="btn-small">Read More</a>
-        </div>
-        <div class="service-card">
-          <div class="image" style="background-image: url('Our service images/Our product Img/Cladding Solution Img.png');"></div>
-          <h4>Cladding Solution</h4>
-          <p>We offers expert cladding solutions that combine protection, performance, and visual appeal. We provide aluminium composite panel (ACP) and stainless steel cladding in...</p>
-          <a href="services.html#cladding-solution" class="btn-small">Read More</a>
-        </div>
-        <div class="service-card">
-          <div class="image" style="background-image: url('Our service images/Our product Img/Frameless structure Img.png');"></div>
-          <h4>Frameless Structures</h4>
-          <p>We specializes in frameless glass solutions that offer a sleek, modern look for commercial, residential, and hospitality spaces. Our range includes frameless office partitions...</p>
-         <a href="services.html#frameless-structure" class="btn-small">Read More</a>
-        </div>
-        <div class="service-card">
-          <div class="image" style="background-image: url('Our service images/Our product Img/Handrails and Balustrades Img.png');"></div>
-          <h4>Handrails and Balustrades</h4>
-          <p>We provides high-quality handrails and balustrades that combine safety, durability, and modern design. Our range includes glass balustrades, stainless steel railings, and...</p>
-          <a href="services.html#handrails-and-balustrades" class="btn-small">Read More</a>
-        </div>
-        <div class="service-card">
-          <div class="image" style="background-image: url('Our service images/Our product Img/Architectural Features Img.png');"></div>
-          <h4>Architectural Features</h4>
-          <p>We designs and installs custom architectural features that enhance both style and functionality. Our offerings include skylights, domes, pergolas, and decorative screens...</p>
-        <a href="services.html#architectural-features" class="btn-small">Read More</a>
-        </div>
-        <!-- more cards -->
+    <div class="connect-section">
+      <div class="connect-image">
+        <img src="images/aluminium.png" alt="Architectural design example" />
       </div>
-      <div class="carousel-dots">
-        <span class="dot active" data-index="0"></span>
-        <span class="dot" data-index="1"></span>
-        <span class="dot" data-index="2"></span>
-        <span class="dot" data-index="3"></span>
-        <span class="dot" data-index="4"></span>
-        <span class="dot" data-index="5"></span>
+      <div class="connect-form">
+        <h2>Quick Connect</h2>
+        <form>
+          <input type="text" placeholder="Name" required />
+          <input type="tel" placeholder="Phone No" required />
+          <input type="email" placeholder="Email" required />
+          <select required>
+            <option value="" disabled selected>Choose Service</option>
+            <option>Aluminium and Glass</option>
+            <option>Doors and Windows</option>
+            <option>Cladding Solution</option>
+            <option>Frameless Structure</option>
+            <option>Handrails and Balustrades</option>
+            <option>Architectural Feature</option>
+          </select>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Call Request</button>
+        </form>
       </div>
     </div>
   </div>
-</section>
-<div class="container">
-<div class="connect-section">
-  <div class="connect-image">
-    <img src="images/aluminium.png" alt="Map" />
+
+  <div id="whatsapp">
+    <a href="https://api.whatsapp.com/send?phone=+971509933130&text=Hello! I would like to know more about your products." target="_blank" class="wtsapp"><i class="fab fa-whatsapp"></i></a>
   </div>
-  <div class="connect-form">
-    <h2>Quick Connect</h2>
-    <input type="text" placeholder="Name" />
-    <input type="text" placeholder="Phone No" />
-    <input type="email" placeholder="email" />
-    <select>
-    <option value="">Choose Services</option>
-    <option>Aluminium and Glass</option>
-<option>Doors and Windows</option>
-<option>Cladding Solution</option>
-<option>Frameless Structure</option>
-<option>Handrails and Balustrades</option>
-<option>Architectural Feature</option>
 
-  </select>
-   <textarea placeholder="Your Message" rows="5" required></textarea>
-    <button>Call Request</button>
-  </div>
-</div>
-</div>
-
-  
-  <div id="whatsapp"><a href="https://api.whatsapp.com/send?phone=+971509933130&text=Hello%20%20would%20like%20to%20know%20more%20details%20about%20your%20products%2C%20Please%20send%20more%20details." target="_blank" id="toggle1" class="wtsapp"><i class="fa fa-whatsapp"></i></a></div>
-
-
- <footer class="footer">
-  <div class="footer-overlay">
-    <div class="footer-container">
-      <div class="footer-column">
-        <h2>ALUCAD</h2>
-        <p>
-          Specializing in advanced architectural aluminium and glass systems since 2002. We deliver excellence and innovation in every project.
-          
-        </p>
-        <div class="footer-socials">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-x-twitter"></i></a>
+  <footer class="footer">
+    <div class="footer-overlay">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h2>ALUCAD</h2>
+          <p>Specializing in advanced architectural aluminium and glass systems since 2002. We deliver excellence and innovation in every project.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About us</a></li>
+            <li><a href="./services.html">Our Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./contacts.html">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <p>
+            Musaffah, M37, Abu Dhabi, U.A.E.<br />
+            +971 50 993 3130<br />
+            +971 2 639 0130<br />
+            support@virtuglobe.com
+          </p>
         </div>
       </div>
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="./index.html">Home</a></li>         
-          <li><a href="./about.html">About us</a></li>
-          <li><a href="./services.html">Our Services</a></li>
-          <li><a href="./gallery.html">Gallery</a></li>
-          <li><a href="./contacts.html">Contact us</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>Contact Info</h3>
-        <p>
-          Musaffah, M37, Abu Dhabi, U.A.E.<br />
-          +971 50 993 3130<br>
-          +971 2 639 0130<br />
-          desktop publishing @pubish.com
-        </p>
-      </div>
+      <div class="footer-bottom">© 2025 Alucad. All Rights Reserved.</div>
     </div>
-    <div class="footer-bottom">2025 Alucad</div>
-  </div>
-</footer>
-<script src="main.js"></script>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
+
 </html>
