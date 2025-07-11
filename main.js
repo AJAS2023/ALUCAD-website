@@ -1,21 +1,26 @@
+document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * Mobile Menu Toggle
+   */
+  const navMenu = document.getElementById('navMenu');
+  const menuIcon = document.querySelector('.menu-icon');
 
-    function toggleMenu() {
-      const navMenu = document.getElementById('navMenu');
-      const icon = document.querySelector('.menu-icon');
-
+  if (menuIcon) {
+    menuIcon.addEventListener('click', function () {
       navMenu.classList.toggle('show');
+      this.textContent = navMenu.classList.contains('show') ? '✖' : '☰';
+    });
+  }
 
-      // Toggle icon (optional)
-      icon.textContent = navMenu.classList.contains('show') ? '✖' : '☰';
-    }
-
+  /**
+   * Hide Header on Scroll Down
+   */
+  const headerWrapper = document.getElementById('headerWrapper');
+  if (headerWrapper) {
     let lastScrollTop = 0;
-    const headerWrapper = document.getElementById('headerWrapper');
-
     window.addEventListener('scroll', function () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop) {
+      if (scrollTop > lastScrollTop && scrollTop > headerWrapper.offsetHeight) {
         // Scrolling down
         headerWrapper.classList.add('hide-header');
       } else {
@@ -24,210 +29,151 @@
       }
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
- const features = document.querySelectorAll('.feature-item');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-feature');
-          observer.unobserve(entry.target); // only animate once
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
-
-    features.forEach(item => {
-      observer.observe(item);
-    });
-
-    const slides = document.querySelectorAll('.slide');
-  const slidesWrapper = document.querySelector('.slides');
-  let currentIndex = 0;
-  const totalSlides = slides.length;
-  const slideDuration = 5000; // 5 seconds
-
-  // function showSlide(index) {
-  //   slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
-
-  //   slides.forEach((slide, i) => {
-  //     const img = slide.querySelector('img');
-  //     const caption = slide.querySelector('.caption');
-
-  //     // Remove all animation classes
-  //     img.classList.remove('animate-img');
-  //     caption.classList.remove('animate-caption-in');
-  //     caption.classList.remove('animate-caption-out');
-
-  //     // Animate out only if not current slide
-  //     if (i !== index) {
-  //       caption.classList.add('animate-caption-out');
-  //     }
-  //   });
-
-  //   // Animate in current slide caption
-  //   const currentSlide = slides[index];
-  //   const currentImg = currentSlide.querySelector('img');
-  //   const currentCaption = currentSlide.querySelector('.caption');
-
-  //   void currentImg.offsetWidth;     // trigger reflow
-  //   void currentCaption.offsetWidth;
-
-  //   currentImg.classList.add('animate-img');
-  //   currentCaption.classList.add('animate-caption-in');
-  // }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    showSlide(currentIndex);
   }
 
-  // Initial start
-  showSlide(currentIndex);
-  setInterval(nextSlide, slideDuration);
-  const counters = document.querySelectorAll('.counter');
-    let hasAnimated = false;
-function showSlide(index) {
-  slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
+  /**
+   * Animated Counter with Intersection Observer
+   */
+  const statsSection = document.querySelector('.stats');
+  if (statsSection) {
+    const animateCounters = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.counter');
+          counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            const updateCount = () => {
+              const increment = target / 100; // Animation speed
+              count += increment;
+              if (count < target) {
+                counter.innerText = Math.ceil(count);
+                requestAnimationFrame(updateCount);
+              } else {
+                counter.innerText = target;
+              }
+            };
+            updateCount();
+          });
+          observer.unobserve(entry.target); // Animate only once
+        }
+      });
+    };
 
-  slides.forEach((slide, i) => {
-    const img = slide.querySelector('img');
-    const caption = slide.querySelector('.caption');
-    const subCaption = slide.querySelector('.sub-caption');
+    const counterObserver = new IntersectionObserver(animateCounters, {
+      threshold: 0.5
+    });
+    counterObserver.observe(statsSection);
+  }
 
-    img.classList.remove('animate-img');
-    caption?.classList.remove('animate-caption-in', 'animate-caption-out');
-    subCaption?.classList.remove('animate-caption-in', 'animate-caption-out');
+  /**
+   * Hero Slider
+   */
+  const slides = document.querySelectorAll('.hero-slider .slide');
+  const dots = document.querySelectorAll('.hero-slider .dot');
+  if (slides.length > 0) {
+    let currentSlide = 0;
+    const slideInterval = 6000; // 6 seconds per slide
 
-    if (i !== index) {
-      caption?.classList.add('animate-caption-out');
-      subCaption?.classList.add('animate-caption-out');
-    }
-  });
-
-  const currentSlide = slides[index];
-  const currentImg = currentSlide.querySelector('img');
-  const currentCaption = currentSlide.querySelector('.caption');
-  const currentSubCaption = currentSlide.querySelector('.sub-caption');
-
-  void currentImg.offsetWidth;
-  void currentCaption?.offsetWidth;
-  void currentSubCaption?.offsetWidth;
-
-  currentImg.classList.add('animate-img');
-  currentCaption?.classList.add('animate-caption-in');
-  currentSubCaption?.classList.add('animate-caption-in');
-}
-
-    function animateCounters() {
-      if (hasAnimated) return;
-
-      const statsSection = document.querySelector('.stats');
-      const sectionPos = statsSection.getBoundingClientRect().top;
-      const screenHeight = window.innerHeight;
-
-      if (sectionPos < screenHeight - 100) {
-        counters.forEach(counter => {
-          const target = +counter.getAttribute('data-target');
-          let count = 0;
-
-          const step = Math.ceil(target / 60); // Medium speed
-          const interval = setInterval(() => {
-            count += step;
-            if (count >= target) {
-              counter.innerText = target;
-              clearInterval(interval);
-            } else {
-              counter.innerText = count;
-            }
-          }, 20); // Speed step
-        });
-
-        hasAnimated = true;
-      }
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (dots[i]) dots[i].classList.remove('active');
+      });
+      slides[index].classList.add('active');
+      if (dots[index]) dots[index].classList.add('active');
     }
 
-    window.addEventListener('scroll', animateCounters);
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
 
-     window.addEventListener('load', () => {
-    const track = document.querySelector('.carousel-track');
-    const dots = document.querySelectorAll('.dot');
-    const originalCards = Array.from(track.children);
-    const totalCards = originalCards.length;
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentSlide = parseInt(dot.dataset.index);
+        showSlide(currentSlide);
+      });
+    });
 
-    let index = 0;
-    let cardWidth = 0;
-    let interval;
+    setInterval(nextSlide, slideInterval);
+    showSlide(0); // Initialize first slide
+  }
 
-    // Clone original cards once for seamless infinite effect
+  /**
+   * Services Carousel (Infinite Scroll)
+   */
+  const carouselTrack = document.querySelector('.carousel-track');
+  if (carouselTrack) {
+    const originalCards = Array.from(carouselTrack.children);
+    const totalOriginalCards = originalCards.length;
+    const dotsContainer = document.querySelector('.carousel-dots');
+    let currentIndex = 0;
+    let autoPlayInterval;
+
+    // Clone cards for infinite loop effect
     originalCards.forEach(card => {
       const clone = card.cloneNode(true);
-      track.appendChild(clone);
+      carouselTrack.appendChild(clone);
     });
 
-    // Get current card width
-    const updateCardWidth = () => {
-      const card = document.querySelector('.service-card');
-      cardWidth = card ? card.offsetWidth + 20 : 300;
+    // Create dots
+    for(let i = 0; i < totalOriginalCards; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.dataset.index = i;
+        dotsContainer.appendChild(dot);
+    }
+    const carouselDots = dotsContainer.querySelectorAll('.dot');
+
+
+    const updateCarousel = (animate = true) => {
+      const cardWidth = carouselTrack.querySelector('.service-card').offsetWidth;
+      const marginRight = parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginRight);
+      const totalWidth = cardWidth + marginRight;
+
+      carouselTrack.style.transition = animate ? 'transform 0.7s ease-in-out' : 'none';
+      carouselTrack.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
+
+      // Update active dot
+      carouselDots.forEach(d => d.classList.remove('active'));
+      carouselDots[currentIndex % totalOriginalCards].classList.add('active');
     };
 
-    // Sync dot with current slide
-    const updateDots = (idx) => {
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[idx % totalCards]?.classList.add('active');
-    };
+    const handleNext = () => {
+      currentIndex++;
+      updateCarousel();
 
-    // Move carousel
-    const moveTo = (idx, animate = true) => {
-      track.style.transition = animate ? 'transform 0.6s ease-in-out' : 'none';
-      track.style.transform = `translateX(-${idx * cardWidth}px)`;
-      updateDots(idx);
-    };
-
-    // Go to next slide
-    const nextSlide = () => {
-      index++;
-      moveTo(index);
-
-      if (index === totalCards) {
+      if (currentIndex === totalOriginalCards) {
         setTimeout(() => {
-          index = 0;
-          moveTo(index, false);
-        }, 600);
+          currentIndex = 0;
+          updateCarousel(false);
+        }, 700);
       }
     };
 
-    // Start autoplay
     const startAutoplay = () => {
-      return setInterval(nextSlide, 3000);
+        autoPlayInterval = setInterval(handleNext, 3000);
     };
 
-    // Setup on load
-    const init = () => {
-      updateCardWidth();
-      moveTo(index);
-      interval = startAutoplay();
-
-      // Pause/resume on card hover
-      document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('mouseenter', () => clearInterval(interval));
-        card.addEventListener('mouseleave', () => interval = startAutoplay());
-      });
-
-      // Dot click to jump
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          const dotIndex = parseInt(dot.dataset.index);
-          index = dotIndex;
-          moveTo(index);
-        });
-      });
+    const stopAutoplay = () => {
+        clearInterval(autoPlayInterval);
     };
 
-    window.addEventListener('resize', () => {
-      updateCardWidth();
-      moveTo(index, false);
+    carouselTrack.addEventListener('mouseenter', stopAutoplay);
+    carouselTrack.addEventListener('mouseleave', startAutoplay);
+
+    dotsContainer.addEventListener('click', e => {
+        if(e.target.classList.contains('dot')) {
+            currentIndex = parseInt(e.target.dataset.index);
+            updateCarousel();
+        }
     });
 
-    init();
-  });
+    // Initialize
+    updateCarousel(false);
+    startAutoplay();
+
+    window.addEventListener('resize', () => updateCarousel(false));
+  }
+});
